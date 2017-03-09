@@ -73,7 +73,8 @@ module.exports = {
   },
 
   showRestaurants: function (req, res) {
-    return res.status(200).json(user.restaurants.name);
+    var filtered = user.restaurants.filter((restaurant) => restaurant.name === req.params.name)
+    return res.status(200).json(filtered);
   },
 
   updateName: function (req, res) {
